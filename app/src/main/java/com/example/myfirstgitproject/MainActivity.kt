@@ -1,6 +1,7 @@
 package com.example.myfirstgitproject
 
 import android.app.Activity
+import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.view.View
@@ -10,8 +11,7 @@ import com.example.myfirstgitproject.databinding.ActivityMainBinding
 
 class MainActivity : AppCompatActivity() {
     lateinit var bindingClass : ActivityMainBinding
-    val a = 324
-    val b = 34
+
 
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -19,23 +19,11 @@ class MainActivity : AppCompatActivity() {
         bindingClass = ActivityMainBinding.inflate(layoutInflater)
         setContentView(bindingClass.root)
 
-        bindingClass.b1.setOnClickListener {
-
-            val result = a + b
-            bindingClass.tvResult.text = "Результат сложения : $result"
-        }
-        bindingClass.b2.setOnClickListener {
-            val result = a - b
-            bindingClass.tvResult.text = "Результат сложения : $result"
-        }
-        bindingClass.b3.setOnClickListener {
-            val result = a * b
-            bindingClass.tvResult.text = "Результат сложения : $result"
-
-        }
-
-
-
+    }
+    fun testActivity(view: View){
+        val i = Intent(this, TestActivity::class.java)
+        i.putExtra("key", "Whats your name?")
+        startActivity(i)
     }
 
 }
